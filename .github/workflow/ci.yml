@@ -25,12 +25,12 @@ jobs:
         run: ls -R
 
       - name: Debug - Verify package.json Location
-        run: ls -l backend/package.json  # ✅ Check if package.json exists
+        run: ls -l backend/package.json  # ✅ Ensure package.json exists
 
       - name: Install dependencies
+        working-directory: backend  # ✅ Set the correct working directory
         run: npm install
-        working-directory: backend  # ✅ Set correct path
 
       - name: Run tests
+        working-directory: backend  # ✅ Set the correct working directory
         run: npm test
-        working-directory: backend  # ✅ Set correct path
