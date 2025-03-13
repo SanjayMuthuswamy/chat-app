@@ -13,8 +13,7 @@ io.on("connection", (socket) => {
 
     socket.on("chatMessage", (data) => {
         io.emit("chatMessage", { id: socket.id, msg: data.msg });
-    });
-
+    }); 
     socket.on("disconnect", () => {
         console.log("User disconnected:", socket.id);
     });

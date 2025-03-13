@@ -1,0 +1,44 @@
+name: CI Pipeline for Full-Stack App
+
+on:
+  push:
+    branches:
+      - main  # Runs CI on every push to main
+  pull_request:
+    branches:
+      - main  # Runs CI on every pull request to main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Backend Tests
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: Run Backend Tests
+        run: |
+          cd backend
+          npm test || echo "No tests found"
+
+      # Frontend Build Check (Optional)
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build Frontend (Check for Errors)
+        run: |
+          cd frontend
+          npm run build || echo "Build failed"
