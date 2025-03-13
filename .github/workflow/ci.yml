@@ -23,14 +23,14 @@ jobs:
 
       - name: Debug - Check Directory Structure
         run: ls -R
-     
+
       - name: Debug - Verify package.json Location
-        run: ls -l Chat-application/backend/package.json
+        run: ls -l backend/package.json  # ✅ Check if package.json exists
 
       - name: Install dependencies
-        working-directory: Chat-application/backend
         run: npm install
+        working-directory: backend  # ✅ Set correct path
 
       - name: Run tests
-        working-directory: Chat-application/backend
         run: npm test
+        working-directory: backend  # ✅ Set correct path
