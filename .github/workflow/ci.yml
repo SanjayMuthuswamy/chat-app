@@ -23,12 +23,12 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: ./Chat-application/backend  # ✅ Corrected path
+        working-directory: Chat-application/backend  # ✅ Corrected path
 
       - name: Run Tests
         run: npm test
-        working-directory: ./Chat-application/backend  # ✅ Corrected path
+        working-directory: Chat-application/backend  # ✅ Corrected path
 
       - name: Build Project
         run: npm run build
-        working-directory: ./Chat-application/backend  # ✅ Corrected path
+        working-directory: Chat-application/backend  # ✅ Corrected path
