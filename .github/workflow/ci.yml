@@ -21,10 +21,16 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Debug - Check Directory Structure
+        run: ls -R
+     
+      - name: Debug - Verify package.json Location
+        run: ls -l Chat-application/backend/package.json
+
       - name: Install dependencies
+        working-directory: Chat-application/backend
         run: npm install
-        working-directory: backend  # ✅ Corrected path
 
       - name: Run tests
+        working-directory: Chat-application/backend
         run: npm test
-        working-directory: backend  # ✅ Corrected path
